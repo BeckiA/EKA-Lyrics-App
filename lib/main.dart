@@ -10,12 +10,10 @@ class LyricsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Lyrics App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const LyricsListScreen(),
+      debugShowCheckedModeBanner: false,
+      home: LyricsListScreen(),
     );
   }
 }

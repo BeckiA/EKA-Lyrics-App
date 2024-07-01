@@ -11,14 +11,17 @@ class LyricsDetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(lyrics.title),
+        backgroundColor: const Color(0xFFffb703),
+        // centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Text(
-            lyrics.lyrics,
-            style: const TextStyle(fontSize: 16.0),
-            textAlign: TextAlign.center,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Text(
+              lyrics.lyrics,
+              style: const TextStyle(fontSize: 18.0),
+            ),
           ),
         ),
       ),
