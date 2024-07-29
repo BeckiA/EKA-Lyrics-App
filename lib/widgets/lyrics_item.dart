@@ -1,3 +1,4 @@
+import 'package:eka_lyrics/constants/colors.dart';
 import 'package:eka_lyrics/models/lyrics.dart';
 import 'package:eka_lyrics/views/lyrics_details_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class LyricsListItem extends StatelessWidget {
         margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
         decoration: BoxDecoration(
-          color: const Color(0xFFFFF5DB), // Light blue for container background
+          color: ekaAccentColor, // Light blue for container background
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(
@@ -42,7 +43,7 @@ class LyricsListItem extends StatelessWidget {
             style: const TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
-              color: Color(0xFF333333), // Main text color
+              color: ekaTextColor, // Main text color
             ),
           ),
         ),

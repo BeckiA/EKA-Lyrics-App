@@ -10,4 +10,10 @@ class Lyrics {
       lyrics: json['lyrics'],
     );
   }
+
+  // Converts a Lyrics instance to a JSON object
+  Map<String, dynamic> toJson() => {
+        'title': title,
+        'lyrics': lyrics,
+      };
 }

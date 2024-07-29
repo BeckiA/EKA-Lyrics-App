@@ -10,18 +10,35 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  visibility_detector: ^0.4.0+2
+  provider: ^6.1.2
+  share: ^2.0.4
+  shared_preferences: ^2.2.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  flutter_launcher_icons: ^0.13.1
   flutter_lints: ^3.0.0
 
+
+flutter_icons:
+  android: true
+  ios: true
+  adaptive_icon_foreground: "assets/images/Logo/EKA_Launcher_Icon.png"
+  web:
+    generate: true
+    image_path: "assets/images/Logo/EKA_Logo.png"
+  windows:
+    generate: true
+    image_path: "assets/images/Logo/EKA_Logo.png"
+    icon_size: 48 # min:48, max:256, default: 48
+  image_path: "assets/images/Logo/EKA_Logo.png"
 flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/lyrics_data.json
+    - assets/images/
+    - assets/images/Logo/
   #   - images/a_dot_ham.jpeg

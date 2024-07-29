@@ -1,8 +1,17 @@
-import 'package:eka_lyrics/views/lyrics_list_screen.dart';
+import 'package:eka_lyrics/constants/colors.dart';
+import 'package:eka_lyrics/utils/favorites_provider.dart';
+import 'package:eka_lyrics/views/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const LyricsApp());
+  
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => FavoritesProvider(),
+      child: const LyricsApp(),
+    ),
+  );
 }
 
 class LyricsApp extends StatelessWidget {
@@ -10,10 +19,13 @@ class LyricsApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Lyrics App',
+      theme: ThemeData(
+        scaffoldBackgroundColor: ekaPrimaryColor, // Set your desired color here
+      ),
       debugShowCheckedModeBanner: false,
-      home: LyricsListScreen(),
+      home: const SplashScreen(),
     );
   }
 }
