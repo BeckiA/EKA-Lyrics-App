@@ -40,8 +40,12 @@ class _FavoritesListScreenState extends State<FavoritesListScreen> {
     }
   }
 
+  
+
   @override
   Widget build(BuildContext context) {
+    final favoritesProvider =
+        Provider.of<FavoritesProvider>(context, listen: false);
     return WillPopScope(
       onWillPop: _onWillPop,
       child: Scaffold(
@@ -80,17 +84,38 @@ class _FavoritesListScreenState extends State<FavoritesListScreen> {
                     itemCount: favorites.length,
                     itemBuilder: (context, index) {
                       final lyrics = favorites[index];
-                      return GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  LyricsDetailScreen(lyrics: lyrics),
-                            ),
-                          );
+                      return Dismissible(
+                        key: ValueKey(favorites),
+                        background: Container(
+                          color: Colors.redAccent,
+                          alignment: Alignment.centerRight,
+                          padding: const EdgeInsets.only(right: 20),
+                          margin: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 4),
+                          child: const Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                            size: 35,
+                          ),
+                        ),
+                        direction: DismissDirection.endToStart,
+                        onDismissed: (direction) {
+                          favoritesProvider.removeFavorite(lyrics);
+
+                          setState(() {});
                         },
-                        child: LyricsListItem(index: index, lyrics: lyrics),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    LyricsDetailScreen(lyrics: lyrics),
+                              ),
+                            );
+                          },
+                          child: LyricsListItem(index: index, lyrics: lyrics),
+                        ),
                       );
                     },
                   );
